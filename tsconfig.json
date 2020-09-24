@@ -1,0 +1,47 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+        "target": "es6",
+        "lib": [
+            "es6",
+            "dom"
+        ],
+        "types": [
+            "express",
+            "inversify",
+            "inversify-express-utils",
+            "reflect-metadata",
+            "mocha",
+            "sinon",
+            "lodash",
+            "chai"
+        ],
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "isolatedModules": false,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "noImplicitAny": true,
+        "preserveConstEnums": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "pretty": true,
+        "outDir": "dist",
+        "sourceMap": true,
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+        "typeRoots": [
+            "./node_modules/@types",
+            "./typings"
+        ]
+    },
+    "include": [
+        "src/**/*",
+        "src/lang/i18n/*.json"
+    ],
+    "exclude": [
+        "node_modules"
+    ],
+    "files": [
+        "typings/extends.response.d.ts"
+    ]
+}

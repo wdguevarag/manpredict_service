@@ -1,0 +1,129 @@
+{
+    "name": "am_health_service",
+    "version": "0.1.0",
+    "description": "health-services",
+    "main": "src/index.ts",
+    "scripts": {
+        "clean": "echo \"Cleaning...\" && gulp clean",
+        "build": "echo \"Building...\" && npm run clean && tsc -p tsconfig.json && gulp build && echo \"Application is building in directory dist.\"",
+        "test": "echo \"Testing...\" && nyc mocha",
+        "dev": "echo \"Developing...\" && nodemon",
+        "start": "echo \"Starting application...\" && npm run build && node dist/index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "keywords": [
+        "inversify",
+        "inversifyjs",
+        "typescript",
+        "expressjs",
+        "express",
+        "api rest",
+        "documentation",
+        "decorator",
+        "generator",
+        "swagger.json",
+        "json",
+        "rest"
+    ],
+    "author": "MSS",
+    "license": "MIT",
+    "dependencies": {
+        "@feathersjs/authentication-client": "^4.5.3",
+        "@feathersjs/client": "^4.5.3",
+        "@feathersjs/errors": "^4.5.3",
+        "@feathersjs/feathers": "^4.5.3",
+        "@feathersjs/primus-client": "^4.5.3",
+        "@feathersjs/rest-client": "^4.5.3",
+        "@feathersjs/socketio-client": "^4.5.3",
+        "axios": "^0.19.2",
+        "body-parser": "^1.19.0",
+        "cors": "^2.8.5",
+        "dotenv": "^8.2.0",
+        "i18n": "^0.9.1",
+        "inversify": "^5.0.1",
+        "inversify-express-utils": "6.3.2",
+        "lodash": "^4.17.15",
+        "moment": "^2.24.0",
+        "node-input-validator": "^4.2.0",
+        "pg": "^8.0.3",
+        "pg-hstore": "^2.3.3",
+        "reflect-metadata": "^0.1.13",
+        "sequelize": "^5.21.7",
+        "socket.io": "^2.3.0",
+        "socket.io-client": "^2.3.0"
+    },
+    "devDependencies": {
+        "@types/bluebird": "^3.5.30",
+        "@types/body-parser": "^1.19.0",
+        "@types/chai": "^4.2.11",
+        "@types/compression": "1.7.0",
+        "@types/cors": "^2.8.6",
+        "@types/express": "^4.17.6",
+        "@types/i18n": "^0.8.6",
+        "@types/lodash": "^4.14.150",
+        "@types/mocha": "^7.0.2",
+        "@types/sinon": "^9.0.0",
+        "@types/socket.io-client": "^1.4.33",
+        "@types/validator": "^13.0.0",
+        "chai": "^4.2.0",
+        "gulp": "^4.0.2",
+        "gulp-clean": "^0.4.0",
+        "gulp-javascript-obfuscator": "^1.1.6",
+        "gulp-uglify": "^3.0.2",
+        "gulp-uglify-es": "^2.0.0",
+        "gulp4-run-sequence": "^1.0.0",
+        "husky": "^4.2.5",
+        "mocha": "^7.1.1",
+        "nodemon": "^2.0.3",
+        "nyc": "^15.0.1",
+        "prettier": "2.0.5",
+        "pretty-quick": "^2.0.1",
+        "readable-stream": "^3.6.0",
+        "rimraf": "^3.0.2",
+        "sinon": "^9.0.2",
+        "source-map-support": "^0.5.19",
+        "ts-node": "^8.9.0",
+        "tslint": "^6.1.1",
+        "tslint-config-prettier": "^1.18.0",
+        "typescript": "^3.8.3"
+    },
+    "nyc": {
+        "include": [
+            "src/**/*.ts"
+        ],
+        "exclude": [
+            "src/index.ts"
+        ],
+        "extension": [
+            ".ts"
+        ],
+        "require": [
+            "ts-node/register"
+        ],
+        "reporter": [
+            "html",
+            "cobertura"
+        ],
+        "sourceMap": true,
+        "instrument": true
+    },
+    "nodemonConfig": {
+        "restartable": "rs",
+        "watch": [
+            "src/**/*.ts"
+        ],
+        "ext": "ts",
+        "ignore": [
+            "test/*",
+            "wiki/*",
+            "swagger/*",
+            "node_modules/*",
+            "dist/*"
+        ],
+        "delay": "2500",
+        "exec": "ts-node --project tsconfig.json --files src/index.ts"
+    }
+}
