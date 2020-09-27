@@ -10,6 +10,10 @@ const TYPES = {
         IEquipmentServices: Symbol.for('IEquipmentServices'),
         IEquipmentsTeethRealTimeServices: Symbol.for('EquipmentsTeethRealTimeServices'),
         ITpsConfigurationServices: Symbol.for('TpsConfigurationServices'),
+
+
+        IClientServices: Symbol.for('ClientServices'),
+        IAreaServices: Symbol.for('AreaServices'),
     },
 
     REPOSITORIES: {
@@ -17,6 +21,10 @@ const TYPES = {
         IEquipmentRepository: Symbol.for('IEquipmentRepository'),
         IEquipmentsTeethRealTimeRepository: Symbol.for('IEquipmentsTeethRealTimeRepository'),
         ITpsConfigurationRepository: Symbol.for('ITpsConfigurationRepository'),
+
+
+        IClientRepository: Symbol.for('IClientRepository'),
+        IAreaRepository: Symbol.for('IAreaRepository'),
     },
 
     VALIDATORS: {

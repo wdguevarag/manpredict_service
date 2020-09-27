@@ -3,14 +3,23 @@ import { Container } from 'inversify';
 import { ILang } from '../lang/lang';
 import './controllers';
 import {
+    IAreaRepository, IAreaServices,
+    IClientRepository,
+    IClientServices,
     IEquipmentPositionRepository,
     IEquipmentPositionServices,
     IEquipmentsTeethRealTimeRepository,
     IEquipmentsTeethRealTimeServices, ITpsConfigurationRepository, ITpsConfigurationServices,
 } from './interfaces';
 import { SupportLangMiddleware } from './middlewares/support_lang.middleware';
-import { EquipmentPositionRepository, EquipmentsTeethRealTimeRepository, TpsConfigurationRepository } from './repositories';
-import { EquipmentPositionService, EquipmentsTeethRealTimeServices } from './services';
+import {
+    AreaRepository,
+    ClientRepository,
+    EquipmentPositionRepository,
+    EquipmentsTeethRealTimeRepository,
+    TpsConfigurationRepository,
+} from './repositories';
+import { AreaServices, ClientServices, EquipmentPositionService, EquipmentsTeethRealTimeServices } from './services';
 import { TYPES } from './types';
 import { IEquipmentRepository, IEquipmentServices } from './interfaces/equipment.interface';
 import { EquipmentService } from './services/equipment.services';
@@ -46,6 +55,8 @@ container.bind<ITpsConfigurationServices>(TYPES.SERVICES.ITpsConfigurationServic
 // container.bind<IFleetsLabourTypeService>(TYPES.SERVICES.IFleetsLabourTypeService).to(FleetsLabourTypeService);
 // container.bind<IScheduleService>(TYPES.SERVICES.IScheduleService).to(ScheduleService);
 // container.bind<IAssigmentLabourService>(TYPES.SERVICES.AssigmenteLabourService).to(AssigmentLabourServices);
+container.bind<IClientServices>(TYPES.SERVICES.IClientServices).to(ClientServices);
+container.bind<IAreaServices>(TYPES.SERVICES.IAreaServices).to(AreaServices);
 
 /***
  * REPOSITORIES
@@ -55,7 +66,6 @@ container.bind<IEquipmentPositionRepository>(TYPES.REPOSITORIES.IEquipmentPositi
 container.bind<IEquipmentRepository>(TYPES.REPOSITORIES.IEquipmentRepository).to(EquipmentRepository);
 container.bind<IEquipmentsTeethRealTimeRepository>(TYPES.REPOSITORIES.IEquipmentsTeethRealTimeRepository).to(EquipmentsTeethRealTimeRepository);
 container.bind<ITpsConfigurationRepository>(TYPES.REPOSITORIES.ITpsConfigurationRepository).to(TpsConfigurationRepository);
-
 // container.bind<IActivityEquipmentResourceRepository>(TYPES.REPOSITORIES.IActivityEquipmentResourceRepository).to(ActivityEquipmentResourceRepository);
 // container.bind<ICrewScheduleEquipmentRepository>(TYPES.REPOSITORIES.CrewScheduleEquipmentRepository).to(CrewScheduleEquipmentRepository);
 // container.bind<IEquipmentRepository>(TYPES.REPOSITORIES.IEquipmentRepository).to(RemoteEquipmentRepository);
@@ -65,6 +75,8 @@ container.bind<ITpsConfigurationRepository>(TYPES.REPOSITORIES.ITpsConfiguration
 // container.bind<IScheduleRepository>(TYPES.REPOSITORIES.IScheduleRepository).to(ScheduleRepository);
 // container.bind<IAssigmenteLabourRepository>(TYPES.REPOSITORIES.AssigmentLabourRepository).to(AssigmentLabourRepository);
 // container.bind<ITasksScheduleRepository>(TYPES.REPOSITORIES.TasksScheduleRepository).to(TasksScheduleRepository);
+container.bind<IClientRepository>(TYPES.REPOSITORIES.IClientRepository).to(ClientRepository);
+container.bind<IAreaRepository>(TYPES.REPOSITORIES.IAreaRepository).to(AreaRepository);
 
 /***
  * VALIDATORS REQUEST

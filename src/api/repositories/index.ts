@@ -3,3 +3,7 @@ export * from './equipment.repository';
 export * from './equipment_teeth_real_time.repository';
 export * from './tps_configuration.repository';
 
+
+export * from './client.repository';
+export * from './area.repository';
+
